@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✍ BlogCMS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="nav-brand">✍ BlogCMS</div>
+        <ul class="nav-menu">
+            <li><a href="#" data-tab="dashboard" class="active">Dashboard</a></li>
+            <li><a href="#" data-tab="posts">Posts</a></li>
+            <li><a href="#" data-tab="authors">Authors</a></li>
+            <li><a href="#" data-tab="categories">Categories</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div id="dashboard" class="tab-content active">
+            <div class="dashboard-header"><h1>✍ BlogCMS</h1><p>Manage your operations efficiently</p></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number" id="postCount">0</div><div class="stat-label">Posts</div></div>
+                <div class="stat-card"><div class="stat-number" id="authorCount">0</div><div class="stat-label">Authors</div></div>
+                <div class="stat-card"><div class="stat-number" id="publishedCount">0</div><div class="stat-label">Published</div></div>
+                <div class="stat-card"><div class="stat-number" id="draftCount">0</div><div class="stat-label">Drafts</div></div>
+            </div>
+        </div>
+
+            <div id="posts" class="tab-content">
+                <div class="section-header">
+                    <h2>Posts</h2>
+                    <button class="btn-primary" onclick="toggleForm('postsForm')">+ Add</button>
+                </div>
+                <form id="postsForm" class="form-container" style="display:none">
+                    <h3>Add Post</h3>
+                    <input type="text" id="postsName" placeholder="Name" required>
+                    <input type="text" id="postsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addPosts()">Add</button>
+                </form>
+                <div id="postsList" class="list-container"></div>
+            </div>
+            <div id="authors" class="tab-content">
+                <div class="section-header">
+                    <h2>Authors</h2>
+                    <button class="btn-primary" onclick="toggleForm('authorsForm')">+ Add</button>
+                </div>
+                <form id="authorsForm" class="form-container" style="display:none">
+                    <h3>Add Author</h3>
+                    <input type="text" id="authorsName" placeholder="Name" required>
+                    <input type="text" id="authorsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addAuthors()">Add</button>
+                </form>
+                <div id="authorsList" class="list-container"></div>
+            </div>
+            <div id="categories" class="tab-content">
+                <div class="section-header">
+                    <h2>Categories</h2>
+                    <button class="btn-primary" onclick="toggleForm('categoriesForm')">+ Add</button>
+                </div>
+                <form id="categoriesForm" class="form-container" style="display:none">
+                    <h3>Add Categorie</h3>
+                    <input type="text" id="categoriesName" placeholder="Name" required>
+                    <input type="text" id="categoriesInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addCategories()">Add</button>
+                </form>
+                <div id="categoriesList" class="list-container"></div>
+            </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

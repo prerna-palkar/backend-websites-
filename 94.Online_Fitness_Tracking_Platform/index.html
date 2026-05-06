@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💪 FitTrack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="nav-brand">💪 FitTrack</div>
+        <ul class="nav-menu">
+            <li><a href="#" data-tab="dashboard" class="active">Dashboard</a></li>
+            <li><a href="#" data-tab="members">Members</a></li>
+            <li><a href="#" data-tab="workouts">Workouts</a></li>
+            <li><a href="#" data-tab="plans">Plans</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div id="dashboard" class="tab-content active">
+            <div class="dashboard-header"><h1>💪 FitTrack</h1><p>Manage your operations efficiently</p></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number" id="memberCount">0</div><div class="stat-label">Members</div></div>
+                <div class="stat-card"><div class="stat-number" id="workoutCount">0</div><div class="stat-label">Workouts</div></div>
+                <div class="stat-card"><div class="stat-number" id="activePlans">0</div><div class="stat-label">Active Plans</div></div>
+                <div class="stat-card"><div class="stat-number" id="avgCalories">0</div><div class="stat-label">Avg Calories</div></div>
+            </div>
+        </div>
+
+            <div id="members" class="tab-content">
+                <div class="section-header">
+                    <h2>Members</h2>
+                    <button class="btn-primary" onclick="toggleForm('membersForm')">+ Add</button>
+                </div>
+                <form id="membersForm" class="form-container" style="display:none">
+                    <h3>Add Member</h3>
+                    <input type="text" id="membersName" placeholder="Name" required>
+                    <input type="text" id="membersInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addMembers()">Add</button>
+                </form>
+                <div id="membersList" class="list-container"></div>
+            </div>
+            <div id="workouts" class="tab-content">
+                <div class="section-header">
+                    <h2>Workouts</h2>
+                    <button class="btn-primary" onclick="toggleForm('workoutsForm')">+ Add</button>
+                </div>
+                <form id="workoutsForm" class="form-container" style="display:none">
+                    <h3>Add Workout</h3>
+                    <input type="text" id="workoutsName" placeholder="Name" required>
+                    <input type="text" id="workoutsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addWorkouts()">Add</button>
+                </form>
+                <div id="workoutsList" class="list-container"></div>
+            </div>
+            <div id="plans" class="tab-content">
+                <div class="section-header">
+                    <h2>Plans</h2>
+                    <button class="btn-primary" onclick="toggleForm('plansForm')">+ Add</button>
+                </div>
+                <form id="plansForm" class="form-container" style="display:none">
+                    <h3>Add Plan</h3>
+                    <input type="text" id="plansName" placeholder="Name" required>
+                    <input type="text" id="plansInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addPlans()">Add</button>
+                </form>
+                <div id="plansList" class="list-container"></div>
+            </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

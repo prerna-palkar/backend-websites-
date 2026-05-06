@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎵 MusicStream</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="nav-brand">🎵 MusicStream</div>
+        <ul class="nav-menu">
+            <li><a href="#" data-tab="dashboard" class="active">Dashboard</a></li>
+            <li><a href="#" data-tab="songs">Songs</a></li>
+            <li><a href="#" data-tab="playlists">Playlists</a></li>
+            <li><a href="#" data-tab="artists">Artists</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div id="dashboard" class="tab-content active">
+            <div class="dashboard-header"><h1>🎵 MusicStream</h1><p>Manage your operations efficiently</p></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number" id="songCount">0</div><div class="stat-label">Songs</div></div>
+                <div class="stat-card"><div class="stat-number" id="playlistCount">0</div><div class="stat-label">Playlists</div></div>
+                <div class="stat-card"><div class="stat-number" id="artistCount">0</div><div class="stat-label">Artists</div></div>
+                <div class="stat-card"><div class="stat-number" id="playCount">0</div><div class="stat-label">Total Plays</div></div>
+            </div>
+        </div>
+
+            <div id="songs" class="tab-content">
+                <div class="section-header">
+                    <h2>Songs</h2>
+                    <button class="btn-primary" onclick="toggleForm('songsForm')">+ Add</button>
+                </div>
+                <form id="songsForm" class="form-container" style="display:none">
+                    <h3>Add Song</h3>
+                    <input type="text" id="songsName" placeholder="Name" required>
+                    <input type="text" id="songsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addSongs()">Add</button>
+                </form>
+                <div id="songsList" class="list-container"></div>
+            </div>
+            <div id="playlists" class="tab-content">
+                <div class="section-header">
+                    <h2>Playlists</h2>
+                    <button class="btn-primary" onclick="toggleForm('playlistsForm')">+ Add</button>
+                </div>
+                <form id="playlistsForm" class="form-container" style="display:none">
+                    <h3>Add Playlist</h3>
+                    <input type="text" id="playlistsName" placeholder="Name" required>
+                    <input type="text" id="playlistsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addPlaylists()">Add</button>
+                </form>
+                <div id="playlistsList" class="list-container"></div>
+            </div>
+            <div id="artists" class="tab-content">
+                <div class="section-header">
+                    <h2>Artists</h2>
+                    <button class="btn-primary" onclick="toggleForm('artistsForm')">+ Add</button>
+                </div>
+                <form id="artistsForm" class="form-container" style="display:none">
+                    <h3>Add Artist</h3>
+                    <input type="text" id="artistsName" placeholder="Name" required>
+                    <input type="text" id="artistsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addArtists()">Add</button>
+                </form>
+                <div id="artistsList" class="list-container"></div>
+            </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

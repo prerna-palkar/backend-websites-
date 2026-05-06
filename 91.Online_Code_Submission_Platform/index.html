@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💻 CodeSubmit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="nav-brand">💻 CodeSubmit</div>
+        <ul class="nav-menu">
+            <li><a href="#" data-tab="dashboard" class="active">Dashboard</a></li>
+            <li><a href="#" data-tab="problems">Problems</a></li>
+            <li><a href="#" data-tab="submissions">Submissions</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div id="dashboard" class="tab-content active">
+            <div class="dashboard-header"><h1>💻 CodeSubmit</h1><p>Manage your operations efficiently</p></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number" id="problemCount">0</div><div class="stat-label">Problems</div></div>
+                <div class="stat-card"><div class="stat-number" id="submissionCount">0</div><div class="stat-label">Submissions</div></div>
+                <div class="stat-card"><div class="stat-number" id="passedCount">0</div><div class="stat-label">Passed</div></div>
+                <div class="stat-card"><div class="stat-number" id="failedCount">0</div><div class="stat-label">Failed</div></div>
+            </div>
+        </div>
+
+            <div id="problems" class="tab-content">
+                <div class="section-header">
+                    <h2>Problems</h2>
+                    <button class="btn-primary" onclick="toggleForm('problemsForm')">+ Add</button>
+                </div>
+                <form id="problemsForm" class="form-container" style="display:none">
+                    <h3>Add Problem</h3>
+                    <input type="text" id="problemsName" placeholder="Name" required>
+                    <input type="text" id="problemsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addProblems()">Add</button>
+                </form>
+                <div id="problemsList" class="list-container"></div>
+            </div>
+            <div id="submissions" class="tab-content">
+                <div class="section-header">
+                    <h2>Submissions</h2>
+                    <button class="btn-primary" onclick="toggleForm('submissionsForm')">+ Add</button>
+                </div>
+                <form id="submissionsForm" class="form-container" style="display:none">
+                    <h3>Add Submission</h3>
+                    <input type="text" id="submissionsName" placeholder="Name" required>
+                    <input type="text" id="submissionsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addSubmissions()">Add</button>
+                </form>
+                <div id="submissionsList" class="list-container"></div>
+            </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

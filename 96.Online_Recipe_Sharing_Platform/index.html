@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍳 RecipeShare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="nav-brand">🍳 RecipeShare</div>
+        <ul class="nav-menu">
+            <li><a href="#" data-tab="dashboard" class="active">Dashboard</a></li>
+            <li><a href="#" data-tab="recipes">Recipes</a></li>
+            <li><a href="#" data-tab="chefs">Chefs</a></li>
+            <li><a href="#" data-tab="categories">Categories</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div id="dashboard" class="tab-content active">
+            <div class="dashboard-header"><h1>🍳 RecipeShare</h1><p>Manage your operations efficiently</p></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number" id="recipeCount">0</div><div class="stat-label">Recipes</div></div>
+                <div class="stat-card"><div class="stat-number" id="chefCount">0</div><div class="stat-label">Chefs</div></div>
+                <div class="stat-card"><div class="stat-number" id="categoryCount">0</div><div class="stat-label">Categories</div></div>
+                <div class="stat-card"><div class="stat-number" id="avgRating">0</div><div class="stat-label">Avg Rating</div></div>
+            </div>
+        </div>
+
+            <div id="recipes" class="tab-content">
+                <div class="section-header">
+                    <h2>Recipes</h2>
+                    <button class="btn-primary" onclick="toggleForm('recipesForm')">+ Add</button>
+                </div>
+                <form id="recipesForm" class="form-container" style="display:none">
+                    <h3>Add Recipe</h3>
+                    <input type="text" id="recipesName" placeholder="Name" required>
+                    <input type="text" id="recipesInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addRecipes()">Add</button>
+                </form>
+                <div id="recipesList" class="list-container"></div>
+            </div>
+            <div id="chefs" class="tab-content">
+                <div class="section-header">
+                    <h2>Chefs</h2>
+                    <button class="btn-primary" onclick="toggleForm('chefsForm')">+ Add</button>
+                </div>
+                <form id="chefsForm" class="form-container" style="display:none">
+                    <h3>Add Chef</h3>
+                    <input type="text" id="chefsName" placeholder="Name" required>
+                    <input type="text" id="chefsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addChefs()">Add</button>
+                </form>
+                <div id="chefsList" class="list-container"></div>
+            </div>
+            <div id="categories" class="tab-content">
+                <div class="section-header">
+                    <h2>Categories</h2>
+                    <button class="btn-primary" onclick="toggleForm('categoriesForm')">+ Add</button>
+                </div>
+                <form id="categoriesForm" class="form-container" style="display:none">
+                    <h3>Add Categorie</h3>
+                    <input type="text" id="categoriesName" placeholder="Name" required>
+                    <input type="text" id="categoriesInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addCategories()">Add</button>
+                </form>
+                <div id="categoriesList" class="list-container"></div>
+            </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

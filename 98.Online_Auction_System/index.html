@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔨 AuctionHub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="nav-brand">🔨 AuctionHub</div>
+        <ul class="nav-menu">
+            <li><a href="#" data-tab="dashboard" class="active">Dashboard</a></li>
+            <li><a href="#" data-tab="items">Items</a></li>
+            <li><a href="#" data-tab="bids">Bids</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div id="dashboard" class="tab-content active">
+            <div class="dashboard-header"><h1>🔨 AuctionHub</h1><p>Manage your operations efficiently</p></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number" id="itemCount">0</div><div class="stat-label">Items</div></div>
+                <div class="stat-card"><div class="stat-number" id="bidCount">0</div><div class="stat-label">Bids</div></div>
+                <div class="stat-card"><div class="stat-number" id="activeCount">0</div><div class="stat-label">Active Auctions</div></div>
+                <div class="stat-card"><div class="stat-number" id="totalValue">0</div><div class="stat-label">Total Value</div></div>
+            </div>
+        </div>
+
+            <div id="items" class="tab-content">
+                <div class="section-header">
+                    <h2>Items</h2>
+                    <button class="btn-primary" onclick="toggleForm('itemsForm')">+ Add</button>
+                </div>
+                <form id="itemsForm" class="form-container" style="display:none">
+                    <h3>Add Item</h3>
+                    <input type="text" id="itemsName" placeholder="Name" required>
+                    <input type="text" id="itemsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addItems()">Add</button>
+                </form>
+                <div id="itemsList" class="list-container"></div>
+            </div>
+            <div id="bids" class="tab-content">
+                <div class="section-header">
+                    <h2>Bids</h2>
+                    <button class="btn-primary" onclick="toggleForm('bidsForm')">+ Add</button>
+                </div>
+                <form id="bidsForm" class="form-container" style="display:none">
+                    <h3>Add Bid</h3>
+                    <input type="text" id="bidsName" placeholder="Name" required>
+                    <input type="text" id="bidsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addBids()">Add</button>
+                </form>
+                <div id="bidsList" class="list-container"></div>
+            </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

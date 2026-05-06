@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤝 NGOHub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="nav-brand">🤝 NGOHub</div>
+        <ul class="nav-menu">
+            <li><a href="#" data-tab="dashboard" class="active">Dashboard</a></li>
+            <li><a href="#" data-tab="projects">Projects</a></li>
+            <li><a href="#" data-tab="volunteers">Volunteers</a></li>
+            <li><a href="#" data-tab="donations">Donations</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div id="dashboard" class="tab-content active">
+            <div class="dashboard-header"><h1>🤝 NGOHub</h1><p>Manage your operations efficiently</p></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number" id="projectCount">0</div><div class="stat-label">Projects</div></div>
+                <div class="stat-card"><div class="stat-number" id="volunteerCount">0</div><div class="stat-label">Volunteers</div></div>
+                <div class="stat-card"><div class="stat-number" id="donationCount">0</div><div class="stat-label">Donations</div></div>
+                <div class="stat-card"><div class="stat-number" id="totalFunds">0</div><div class="stat-label">Total Funds</div></div>
+            </div>
+        </div>
+
+            <div id="projects" class="tab-content">
+                <div class="section-header">
+                    <h2>Projects</h2>
+                    <button class="btn-primary" onclick="toggleForm('projectsForm')">+ Add</button>
+                </div>
+                <form id="projectsForm" class="form-container" style="display:none">
+                    <h3>Add Project</h3>
+                    <input type="text" id="projectsName" placeholder="Name" required>
+                    <input type="text" id="projectsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addProjects()">Add</button>
+                </form>
+                <div id="projectsList" class="list-container"></div>
+            </div>
+            <div id="volunteers" class="tab-content">
+                <div class="section-header">
+                    <h2>Volunteers</h2>
+                    <button class="btn-primary" onclick="toggleForm('volunteersForm')">+ Add</button>
+                </div>
+                <form id="volunteersForm" class="form-container" style="display:none">
+                    <h3>Add Volunteer</h3>
+                    <input type="text" id="volunteersName" placeholder="Name" required>
+                    <input type="text" id="volunteersInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addVolunteers()">Add</button>
+                </form>
+                <div id="volunteersList" class="list-container"></div>
+            </div>
+            <div id="donations" class="tab-content">
+                <div class="section-header">
+                    <h2>Donations</h2>
+                    <button class="btn-primary" onclick="toggleForm('donationsForm')">+ Add</button>
+                </div>
+                <form id="donationsForm" class="form-container" style="display:none">
+                    <h3>Add Donation</h3>
+                    <input type="text" id="donationsName" placeholder="Name" required>
+                    <input type="text" id="donationsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addDonations()">Add</button>
+                </form>
+                <div id="donationsList" class="list-container"></div>
+            </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

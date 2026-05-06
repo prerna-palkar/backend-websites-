@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📈 StockTrack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="nav-brand">📈 StockTrack</div>
+        <ul class="nav-menu">
+            <li><a href="#" data-tab="dashboard" class="active">Dashboard</a></li>
+            <li><a href="#" data-tab="stocks">Stocks</a></li>
+            <li><a href="#" data-tab="portfolio">Portfolio</a></li>
+            <li><a href="#" data-tab="watchlist">Watchlist</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div id="dashboard" class="tab-content active">
+            <div class="dashboard-header"><h1>📈 StockTrack</h1><p>Manage your operations efficiently</p></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number" id="stockCount">0</div><div class="stat-label">Stocks</div></div>
+                <div class="stat-card"><div class="stat-number" id="portfolioValue">0</div><div class="stat-label">Portfolio Value</div></div>
+                <div class="stat-card"><div class="stat-number" id="gainLoss">0</div><div class="stat-label">Gain/Loss</div></div>
+                <div class="stat-card"><div class="stat-number" id="watchCount">0</div><div class="stat-label">Watchlist</div></div>
+            </div>
+        </div>
+
+            <div id="stocks" class="tab-content">
+                <div class="section-header">
+                    <h2>Stocks</h2>
+                    <button class="btn-primary" onclick="toggleForm('stocksForm')">+ Add</button>
+                </div>
+                <form id="stocksForm" class="form-container" style="display:none">
+                    <h3>Add Stock</h3>
+                    <input type="text" id="stocksName" placeholder="Name" required>
+                    <input type="text" id="stocksInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addStocks()">Add</button>
+                </form>
+                <div id="stocksList" class="list-container"></div>
+            </div>
+            <div id="portfolio" class="tab-content">
+                <div class="section-header">
+                    <h2>Portfolio</h2>
+                    <button class="btn-primary" onclick="toggleForm('portfolioForm')">+ Add</button>
+                </div>
+                <form id="portfolioForm" class="form-container" style="display:none">
+                    <h3>Add Portfolio</h3>
+                    <input type="text" id="portfolioName" placeholder="Name" required>
+                    <input type="text" id="portfolioInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addPortfolio()">Add</button>
+                </form>
+                <div id="portfolioList" class="list-container"></div>
+            </div>
+            <div id="watchlist" class="tab-content">
+                <div class="section-header">
+                    <h2>Watchlist</h2>
+                    <button class="btn-primary" onclick="toggleForm('watchlistForm')">+ Add</button>
+                </div>
+                <form id="watchlistForm" class="form-container" style="display:none">
+                    <h3>Add Watchlist</h3>
+                    <input type="text" id="watchlistName" placeholder="Name" required>
+                    <input type="text" id="watchlistInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addWatchlist()">Add</button>
+                </form>
+                <div id="watchlistList" class="list-container"></div>
+            </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

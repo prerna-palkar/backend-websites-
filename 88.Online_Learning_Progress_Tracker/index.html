@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 LearnTrack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="nav-brand">📊 LearnTrack</div>
+        <ul class="nav-menu">
+            <li><a href="#" data-tab="dashboard" class="active">Dashboard</a></li>
+            <li><a href="#" data-tab="courses">Courses</a></li>
+            <li><a href="#" data-tab="students">Students</a></li>
+            <li><a href="#" data-tab="progress">Progress</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div id="dashboard" class="tab-content active">
+            <div class="dashboard-header"><h1>📊 LearnTrack</h1><p>Manage your operations efficiently</p></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number" id="courseCount">0</div><div class="stat-label">Courses</div></div>
+                <div class="stat-card"><div class="stat-number" id="studentCount">0</div><div class="stat-label">Students</div></div>
+                <div class="stat-card"><div class="stat-number" id="completedCount">0</div><div class="stat-label">Completed</div></div>
+                <div class="stat-card"><div class="stat-number" id="avgProgress">0</div><div class="stat-label">Avg Progress</div></div>
+            </div>
+        </div>
+
+            <div id="courses" class="tab-content">
+                <div class="section-header">
+                    <h2>Courses</h2>
+                    <button class="btn-primary" onclick="toggleForm('coursesForm')">+ Add</button>
+                </div>
+                <form id="coursesForm" class="form-container" style="display:none">
+                    <h3>Add Course</h3>
+                    <input type="text" id="coursesName" placeholder="Name" required>
+                    <input type="text" id="coursesInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addCourses()">Add</button>
+                </form>
+                <div id="coursesList" class="list-container"></div>
+            </div>
+            <div id="students" class="tab-content">
+                <div class="section-header">
+                    <h2>Students</h2>
+                    <button class="btn-primary" onclick="toggleForm('studentsForm')">+ Add</button>
+                </div>
+                <form id="studentsForm" class="form-container" style="display:none">
+                    <h3>Add Student</h3>
+                    <input type="text" id="studentsName" placeholder="Name" required>
+                    <input type="text" id="studentsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addStudents()">Add</button>
+                </form>
+                <div id="studentsList" class="list-container"></div>
+            </div>
+            <div id="progress" class="tab-content">
+                <div class="section-header">
+                    <h2>Progress</h2>
+                    <button class="btn-primary" onclick="toggleForm('progressForm')">+ Add</button>
+                </div>
+                <form id="progressForm" class="form-container" style="display:none">
+                    <h3>Add Progre</h3>
+                    <input type="text" id="progressName" placeholder="Name" required>
+                    <input type="text" id="progressInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addProgress()">Add</button>
+                </form>
+                <div id="progressList" class="list-container"></div>
+            </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

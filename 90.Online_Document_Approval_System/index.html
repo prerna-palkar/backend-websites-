@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📑 DocApprove</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="nav-brand">📑 DocApprove</div>
+        <ul class="nav-menu">
+            <li><a href="#" data-tab="dashboard" class="active">Dashboard</a></li>
+            <li><a href="#" data-tab="documents">Documents</a></li>
+            <li><a href="#" data-tab="approvers">Approvers</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div id="dashboard" class="tab-content active">
+            <div class="dashboard-header"><h1>📑 DocApprove</h1><p>Manage your operations efficiently</p></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number" id="docCount">0</div><div class="stat-label">Documents</div></div>
+                <div class="stat-card"><div class="stat-number" id="pendingCount">0</div><div class="stat-label">Pending</div></div>
+                <div class="stat-card"><div class="stat-number" id="approvedCount">0</div><div class="stat-label">Approved</div></div>
+                <div class="stat-card"><div class="stat-number" id="rejectedCount">0</div><div class="stat-label">Rejected</div></div>
+            </div>
+        </div>
+
+            <div id="documents" class="tab-content">
+                <div class="section-header">
+                    <h2>Documents</h2>
+                    <button class="btn-primary" onclick="toggleForm('documentsForm')">+ Add</button>
+                </div>
+                <form id="documentsForm" class="form-container" style="display:none">
+                    <h3>Add Document</h3>
+                    <input type="text" id="documentsName" placeholder="Name" required>
+                    <input type="text" id="documentsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addDocuments()">Add</button>
+                </form>
+                <div id="documentsList" class="list-container"></div>
+            </div>
+            <div id="approvers" class="tab-content">
+                <div class="section-header">
+                    <h2>Approvers</h2>
+                    <button class="btn-primary" onclick="toggleForm('approversForm')">+ Add</button>
+                </div>
+                <form id="approversForm" class="form-container" style="display:none">
+                    <h3>Add Approver</h3>
+                    <input type="text" id="approversName" placeholder="Name" required>
+                    <input type="text" id="approversInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addApprovers()">Add</button>
+                </form>
+                <div id="approversList" class="list-container"></div>
+            </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

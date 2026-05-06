@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏖 LeaveManager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="nav-brand">🏖 LeaveManager</div>
+        <ul class="nav-menu">
+            <li><a href="#" data-tab="dashboard" class="active">Dashboard</a></li>
+            <li><a href="#" data-tab="employees">Employees</a></li>
+            <li><a href="#" data-tab="leaves">Leave Requests</a></li>
+            <li><a href="#" data-tab="holidays">Holidays</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div id="dashboard" class="tab-content active">
+            <div class="dashboard-header"><h1>🏖 LeaveManager</h1><p>Manage your operations efficiently</p></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number" id="empCount">0</div><div class="stat-label">Employees</div></div>
+                <div class="stat-card"><div class="stat-number" id="pendingCount">0</div><div class="stat-label">Pending</div></div>
+                <div class="stat-card"><div class="stat-number" id="approvedCount">0</div><div class="stat-label">Approved</div></div>
+                <div class="stat-card"><div class="stat-number" id="rejectedCount">0</div><div class="stat-label">Rejected</div></div>
+            </div>
+        </div>
+
+            <div id="employees" class="tab-content">
+                <div class="section-header">
+                    <h2>Employees</h2>
+                    <button class="btn-primary" onclick="toggleForm('employeesForm')">+ Add</button>
+                </div>
+                <form id="employeesForm" class="form-container" style="display:none">
+                    <h3>Add Employee</h3>
+                    <input type="text" id="employeesName" placeholder="Name" required>
+                    <input type="text" id="employeesInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addEmployees()">Add</button>
+                </form>
+                <div id="employeesList" class="list-container"></div>
+            </div>
+            <div id="leaves" class="tab-content">
+                <div class="section-header">
+                    <h2>Leave Requests</h2>
+                    <button class="btn-primary" onclick="toggleForm('leavesForm')">+ Add</button>
+                </div>
+                <form id="leavesForm" class="form-container" style="display:none">
+                    <h3>Add Leave Request</h3>
+                    <input type="text" id="leavesName" placeholder="Name" required>
+                    <input type="text" id="leavesInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addLeaves()">Add</button>
+                </form>
+                <div id="leavesList" class="list-container"></div>
+            </div>
+            <div id="holidays" class="tab-content">
+                <div class="section-header">
+                    <h2>Holidays</h2>
+                    <button class="btn-primary" onclick="toggleForm('holidaysForm')">+ Add</button>
+                </div>
+                <form id="holidaysForm" class="form-container" style="display:none">
+                    <h3>Add Holiday</h3>
+                    <input type="text" id="holidaysName" placeholder="Name" required>
+                    <input type="text" id="holidaysInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addHolidays()">Add</button>
+                </form>
+                <div id="holidaysList" class="list-container"></div>
+            </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
