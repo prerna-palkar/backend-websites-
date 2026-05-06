@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpDesk Ticketing System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1>🎟️ HelpDesk Ticketing System</h1>
+                <p>Fast. Reliable. Professional Support</p>
+            </div>
+            <div class="stats-bar">
+                <div class="stat">
+                    <span class="stat-value" id="totalTickets">0</span>
+                    <span class="stat-label">Total Tickets</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="openTickets">0</span>
+                    <span class="stat-label">Open</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="resolvedTickets">0</span>
+                    <span class="stat-label">Resolved</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="form-section">
+                <div class="form-card">
+                    <h2>Create New Ticket</h2>
+                    <form id="ticketForm">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" placeholder="Brief description of issue" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category *</label>
+                            <select id="category" required>
+                                <option value="">Select category</option>
+                                <option value="Technical">Technical Support</option>
+                                <option value="Billing">Billing Issue</option>
+                                <option value="Account">Account Problem</option>
+                                <option value="Feature">Feature Request</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="priority">Priority *</label>
+                            <select id="priority" required>
+                                <option value="">Select priority</option>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                                <option value="Critical">Critical</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description *</label>
+                            <textarea id="description" placeholder="Detailed description of your issue" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Create Ticket</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="tickets-section">
+                <div class="tickets-header">
+                    <h2>Tickets Management</h2>
+                    <div class="filter-controls">
+                        <input type="text" id="searchInput" placeholder="Search tickets..." class="search-box">
+                        <select id="filterStatus" class="filter-select">
+                            <option value="">All Status</option>
+                            <option value="Open">Open</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Resolved">Resolved</option>
+                            <option value="Closed">Closed</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tickets-grid" id="ticketsContainer">
+                    <div class="empty-state">
+                        <p>📭 No tickets yet. Create one to get started!</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div id="ticketModal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Ticket Details</h2>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body" id="modalBody"></div>
+                <div class="modal-footer">
+                    <button class="btn-secondary close-modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

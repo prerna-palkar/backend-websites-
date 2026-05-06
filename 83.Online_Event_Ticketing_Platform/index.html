@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎟 EventPass</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="nav-brand">🎟 EventPass</div>
+        <ul class="nav-menu">
+            <li><a href="#" data-tab="dashboard" class="active">Dashboard</a></li>
+            <li><a href="#" data-tab="events">Events</a></li>
+            <li><a href="#" data-tab="bookings">Bookings</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div id="dashboard" class="tab-content active">
+            <div class="dashboard-header"><h1>🎟 EventPass</h1><p>Manage your operations efficiently</p></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number" id="eventCount">0</div><div class="stat-label">Events</div></div>
+                <div class="stat-card"><div class="stat-number" id="ticketCount">0</div><div class="stat-label">Tickets Sold</div></div>
+                <div class="stat-card"><div class="stat-number" id="revenue">0</div><div class="stat-label">Revenue</div></div>
+                <div class="stat-card"><div class="stat-number" id="bookingCount">0</div><div class="stat-label">Bookings</div></div>
+            </div>
+        </div>
+
+            <div id="events" class="tab-content">
+                <div class="section-header">
+                    <h2>Events</h2>
+                    <button class="btn-primary" onclick="toggleForm('eventsForm')">+ Add</button>
+                </div>
+                <form id="eventsForm" class="form-container" style="display:none">
+                    <h3>Add Event</h3>
+                    <input type="text" id="eventsName" placeholder="Name" required>
+                    <input type="text" id="eventsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addEvents()">Add</button>
+                </form>
+                <div id="eventsList" class="list-container"></div>
+            </div>
+            <div id="bookings" class="tab-content">
+                <div class="section-header">
+                    <h2>Bookings</h2>
+                    <button class="btn-primary" onclick="toggleForm('bookingsForm')">+ Add</button>
+                </div>
+                <form id="bookingsForm" class="form-container" style="display:none">
+                    <h3>Add Booking</h3>
+                    <input type="text" id="bookingsName" placeholder="Name" required>
+                    <input type="text" id="bookingsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addBookings()">Add</button>
+                </form>
+                <div id="bookingsList" class="list-container"></div>
+            </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

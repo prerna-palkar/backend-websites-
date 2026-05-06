@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💬 SupportBot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="nav-brand">💬 SupportBot</div>
+        <ul class="nav-menu">
+            <li><a href="#" data-tab="dashboard" class="active">Dashboard</a></li>
+            <li><a href="#" data-tab="tickets">Tickets</a></li>
+            <li><a href="#" data-tab="agents">Agents</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div id="dashboard" class="tab-content active">
+            <div class="dashboard-header"><h1>💬 SupportBot</h1><p>Manage your operations efficiently</p></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number" id="ticketCount">0</div><div class="stat-label">Total Tickets</div></div>
+                <div class="stat-card"><div class="stat-number" id="openCount">0</div><div class="stat-label">Open</div></div>
+                <div class="stat-card"><div class="stat-number" id="resolvedCount">0</div><div class="stat-label">Resolved</div></div>
+                <div class="stat-card"><div class="stat-number" id="agentCount">0</div><div class="stat-label">Agents</div></div>
+            </div>
+        </div>
+
+            <div id="tickets" class="tab-content">
+                <div class="section-header">
+                    <h2>Tickets</h2>
+                    <button class="btn-primary" onclick="toggleForm('ticketsForm')">+ Add</button>
+                </div>
+                <form id="ticketsForm" class="form-container" style="display:none">
+                    <h3>Add Ticket</h3>
+                    <input type="text" id="ticketsName" placeholder="Name" required>
+                    <input type="text" id="ticketsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addTickets()">Add</button>
+                </form>
+                <div id="ticketsList" class="list-container"></div>
+            </div>
+            <div id="agents" class="tab-content">
+                <div class="section-header">
+                    <h2>Agents</h2>
+                    <button class="btn-primary" onclick="toggleForm('agentsForm')">+ Add</button>
+                </div>
+                <form id="agentsForm" class="form-container" style="display:none">
+                    <h3>Add Agent</h3>
+                    <input type="text" id="agentsName" placeholder="Name" required>
+                    <input type="text" id="agentsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addAgents()">Add</button>
+                </form>
+                <div id="agentsList" class="list-container"></div>
+            </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

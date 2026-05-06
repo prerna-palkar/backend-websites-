@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔄 SubTrack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="nav-brand">🔄 SubTrack</div>
+        <ul class="nav-menu">
+            <li><a href="#" data-tab="dashboard" class="active">Dashboard</a></li>
+            <li><a href="#" data-tab="plans">Plans</a></li>
+            <li><a href="#" data-tab="subscribers">Subscribers</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div id="dashboard" class="tab-content active">
+            <div class="dashboard-header"><h1>🔄 SubTrack</h1><p>Manage your operations efficiently</p></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number" id="planCount">0</div><div class="stat-label">Plans</div></div>
+                <div class="stat-card"><div class="stat-number" id="subCount">0</div><div class="stat-label">Subscribers</div></div>
+                <div class="stat-card"><div class="stat-number" id="activeCount">0</div><div class="stat-label">Active</div></div>
+                <div class="stat-card"><div class="stat-number" id="revenue">0</div><div class="stat-label">Monthly Revenue</div></div>
+            </div>
+        </div>
+
+            <div id="plans" class="tab-content">
+                <div class="section-header">
+                    <h2>Plans</h2>
+                    <button class="btn-primary" onclick="toggleForm('plansForm')">+ Add</button>
+                </div>
+                <form id="plansForm" class="form-container" style="display:none">
+                    <h3>Add Plan</h3>
+                    <input type="text" id="plansName" placeholder="Name" required>
+                    <input type="text" id="plansInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addPlans()">Add</button>
+                </form>
+                <div id="plansList" class="list-container"></div>
+            </div>
+            <div id="subscribers" class="tab-content">
+                <div class="section-header">
+                    <h2>Subscribers</h2>
+                    <button class="btn-primary" onclick="toggleForm('subscribersForm')">+ Add</button>
+                </div>
+                <form id="subscribersForm" class="form-container" style="display:none">
+                    <h3>Add Subscriber</h3>
+                    <input type="text" id="subscribersName" placeholder="Name" required>
+                    <input type="text" id="subscribersInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addSubscribers()">Add</button>
+                </form>
+                <div id="subscribersList" class="list-container"></div>
+            </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

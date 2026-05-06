@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Screening System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="nav-brand">📄 ResumeScreen</div>
+        <ul class="nav-menu">
+            <li><a href="#" data-tab="dashboard" class="active">Dashboard</a></li>
+            <li><a href="#" data-tab="jobs">Job Postings</a></li>
+            <li><a href="#" data-tab="resumes">Resumes</a></li>
+            <li><a href="#" data-tab="screenings">Screenings</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div id="dashboard" class="tab-content active">
+            <div class="dashboard-header"><h1>Resume Screening System</h1><p>AI-powered candidate screening</p></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number" id="jobCount">0</div><div class="stat-label">Job Postings</div></div>
+                <div class="stat-card"><div class="stat-number" id="resumeCount">0</div><div class="stat-label">Resumes</div></div>
+                <div class="stat-card"><div class="stat-number" id="shortlistedCount">0</div><div class="stat-label">Shortlisted</div></div>
+                <div class="stat-card"><div class="stat-number" id="rejectedCount">0</div><div class="stat-label">Rejected</div></div>
+            </div>
+        </div>
+        <div id="jobs" class="tab-content">
+            <div class="section-header"><h2>Job Postings</h2><button class="btn-primary" onclick="toggleForm('jobForm')">+ Add Job</button></div>
+            <form id="jobForm" class="form-container" style="display:none">
+                <h3>Add Job Posting</h3>
+                <input type="text" id="jobTitle" placeholder="Job Title" required>
+                <input type="text" id="jobDept" placeholder="Department" required>
+                <input type="text" id="jobSkills" placeholder="Required Skills (comma separated)" required>
+                <input type="number" id="jobExp" placeholder="Min Experience (years)" min="0" required>
+                <button type="button" class="btn-primary" onclick="addJob()">Add Job</button>
+            </form>
+            <div id="jobsList" class="list-container"></div>
+        </div>
+        <div id="resumes" class="tab-content">
+            <div class="section-header"><h2>Resumes</h2><button class="btn-primary" onclick="toggleForm('resumeForm')">+ Add Resume</button></div>
+            <form id="resumeForm" class="form-container" style="display:none">
+                <h3>Add Resume</h3>
+                <input type="text" id="candidateName" placeholder="Candidate Name" required>
+                <input type="email" id="candidateEmail" placeholder="Email" required>
+                <input type="number" id="candidateExp" placeholder="Experience (years)" min="0" required>
+                <input type="text" id="candidateSkills" placeholder="Skills (comma separated)" required>
+                <button type="button" class="btn-primary" onclick="addResume()">Add Resume</button>
+            </form>
+            <div id="resumesList" class="list-container"></div>
+        </div>
+        <div id="screenings" class="tab-content">
+            <div class="section-header"><h2>Screenings</h2><button class="btn-primary" onclick="toggleForm('screenForm')">+ Screen Resume</button></div>
+            <form id="screenForm" class="form-container" style="display:none">
+                <h3>Screen a Resume</h3>
+                <select id="screenResume"><option value="">Select Resume</option></select>
+                <select id="screenJob"><option value="">Select Job</option></select>
+                <button type="button" class="btn-primary" onclick="screenResume()">Run Screening</button>
+            </form>
+            <div id="screeningsList" class="list-container"></div>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

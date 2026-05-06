@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✈ TravelEase</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar">
+        <div class="nav-brand">✈ TravelEase</div>
+        <ul class="nav-menu">
+            <li><a href="#" data-tab="dashboard" class="active">Dashboard</a></li>
+            <li><a href="#" data-tab="destinations">Destinations</a></li>
+            <li><a href="#" data-tab="bookings">Bookings</a></li>
+            <li><a href="#" data-tab="travelers">Travelers</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div id="dashboard" class="tab-content active">
+            <div class="dashboard-header"><h1>✈ TravelEase</h1><p>Manage your operations efficiently</p></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number" id="destCount">0</div><div class="stat-label">Destinations</div></div>
+                <div class="stat-card"><div class="stat-number" id="bookingCount">0</div><div class="stat-label">Bookings</div></div>
+                <div class="stat-card"><div class="stat-number" id="travelerCount">0</div><div class="stat-label">Travelers</div></div>
+                <div class="stat-card"><div class="stat-number" id="revenue">0</div><div class="stat-label">Revenue</div></div>
+            </div>
+        </div>
+
+            <div id="destinations" class="tab-content">
+                <div class="section-header">
+                    <h2>Destinations</h2>
+                    <button class="btn-primary" onclick="toggleForm('destinationsForm')">+ Add</button>
+                </div>
+                <form id="destinationsForm" class="form-container" style="display:none">
+                    <h3>Add Destination</h3>
+                    <input type="text" id="destinationsName" placeholder="Name" required>
+                    <input type="text" id="destinationsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addDestinations()">Add</button>
+                </form>
+                <div id="destinationsList" class="list-container"></div>
+            </div>
+            <div id="bookings" class="tab-content">
+                <div class="section-header">
+                    <h2>Bookings</h2>
+                    <button class="btn-primary" onclick="toggleForm('bookingsForm')">+ Add</button>
+                </div>
+                <form id="bookingsForm" class="form-container" style="display:none">
+                    <h3>Add Booking</h3>
+                    <input type="text" id="bookingsName" placeholder="Name" required>
+                    <input type="text" id="bookingsInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addBookings()">Add</button>
+                </form>
+                <div id="bookingsList" class="list-container"></div>
+            </div>
+            <div id="travelers" class="tab-content">
+                <div class="section-header">
+                    <h2>Travelers</h2>
+                    <button class="btn-primary" onclick="toggleForm('travelersForm')">+ Add</button>
+                </div>
+                <form id="travelersForm" class="form-container" style="display:none">
+                    <h3>Add Traveler</h3>
+                    <input type="text" id="travelersName" placeholder="Name" required>
+                    <input type="text" id="travelersInfo" placeholder="Details" required>
+                    <button type="button" class="btn-primary" onclick="addTravelers()">Add</button>
+                </form>
+                <div id="travelersList" class="list-container"></div>
+            </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
