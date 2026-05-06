@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍕 FoodTrack - Real-Time Delivery System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <h1>🍕 FoodTrack</h1>
+                <p>Real-Time Food Delivery Tracking</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Left Section - Order Placement -->
+            <section class="order-section">
+                <h2>📋 Place Your Order</h2>
+                <div class="form-group">
+                    <label for="customerName">Your Name</label>
+                    <input type="text" id="customerName" placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="customerPhone">Phone Number</label>
+                    <input type="tel" id="customerPhone" placeholder="Enter your phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="restaurant">Select Restaurant</label>
+                    <select id="restaurant">
+                        <option value="">Choose a restaurant...</option>
+                        <option value="pizza-palace">🍕 Pizza Palace - $8-15</option>
+                        <option value="burger-hub">🍔 Burger Hub - $7-12</option>
+                        <option value="sushi-supreme">🍣 Sushi Supreme - $12-20</option>
+                        <option value="taco-fiesta">🌮 Taco Fiesta - $6-10</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="food-items">Select Items</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" class="food-item" value="10"> Classic Combo - $10</label>
+                        <label><input type="checkbox" class="food-item" value="12"> Premium Meal - $12</label>
+                        <label><input type="checkbox" class="food-item" value="8"> Basic Meal - $8</label>
+                        <label><input type="checkbox" class="food-item" value="5"> Dessert - $5</label>
+                        <label><input type="checkbox" class="food-item" value="3"> Drink - $3</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="deliveryAddress">Delivery Address</label>
+                    <textarea id="deliveryAddress" placeholder="Enter your delivery address" rows="3"></textarea>
+                </div>
+
+                <div class="price-display">
+                    <span>Total Amount:</span>
+                    <span id="totalPrice">$0.00</span>
+                </div>
+
+                <button class="btn btn-primary" onclick="placeOrder()">🚀 Place Order</button>
+            </section>
+
+            <!-- Right Section - Order Tracking -->
+            <section class="tracking-section">
+                <h2>📍 Track Your Order</h2>
+                
+                <div class="search-box">
+                    <input type="text" id="trackingId" placeholder="Enter Order ID (e.g., ORD-12345)">
+                    <button class="btn btn-search" onclick="searchOrder()">Search</button>
+                </div>
+
+                <div id="activeOrders" class="orders-list">
+                    <p class="empty-state">No active orders yet. Place an order to start tracking!</p>
+                </div>
+
+                <div id="trackingDetails" class="tracking-details" style="display: none;">
+                    <div class="tracking-card">
+                        <h3 id="trackedOrderId">Order Details</h3>
+                        
+                        <div class="order-info">
+                            <p><strong>Customer:</strong> <span id="trackedCustomer">-</span></p>
+                            <p><strong>Restaurant:</strong> <span id="trackedRestaurant">-</span></p>
+                            <p><strong>Amount:</strong> <span id="trackedAmount">-</span></p>
+                            <p><strong>Address:</strong> <span id="trackedAddress">-</span></p>
+                        </div>
+
+                        <div class="timeline">
+                            <div class="timeline-item" id="status-confirmed">
+                                <div class="timeline-marker confirmed"></div>
+                                <div class="timeline-content">
+                                    <h4>✅ Order Confirmed</h4>
+                                    <p id="time-confirmed">-</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item" id="status-preparing">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4>👨‍🍳 Preparing Food</h4>
+                                    <p id="time-preparing">-</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item" id="status-on-way">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4>🚴 Out for Delivery</h4>
+                                    <p id="time-on-way">-</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item" id="status-delivered">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4>🏠 Delivered</h4>
+                                    <p id="time-delivered">-</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="current-status">
+                            <p id="statusText" class="status-badge">Order Status: <strong>Pending</strong></p>
+                            <p id="eta" class="eta-text">ETA: -</p>
+                        </div>
+
+                        <button class="btn btn-secondary" onclick="closeTracking()">Close</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🔒 Secure • 📞 24/7 Support • 🚗 Fast Delivery</p>
+            <p>© 2026 FoodTrack. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Scheduling System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div id="authSection" class="container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1>Interview Scheduler</h1>
+                    <p>Professional Interview Management System</p>
+                </div>
+
+                <div class="auth-tabs">
+                    <button class="tab-btn active" onclick="switchTab('login')">Login</button>
+                    <button class="tab-btn" onclick="switchTab('register')">Register</button>
+                </div>
+
+                <div id="loginTab" class="auth-form active-tab">
+                    <form onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Sign In</button>
+                    </form>
+                </div>
+
+                <div id="registerTab" class="auth-form">
+                    <form onsubmit="handleRegister(event)">
+                        <div class="form-group">
+                            <label for="regName">Full Name</label>
+                            <input type="text" id="regName" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regEmail">Email</label>
+                            <input type="email" id="regEmail" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regPassword">Password</label>
+                            <input type="password" id="regPassword" placeholder="••••••••" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regRole">Role</label>
+                            <select id="regRole" required>
+                                <option value="">Select Role</option>
+                                <option value="candidate">Candidate</option>
+                                <option value="interviewer">Interviewer</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-primary">Create Account</button>
+                    </form>
+                </div>
+
+                <div id="message" class="message"></div>
+            </div>
+        </div>
+
+        <div id="dashboardSection" style="display: none;">
+            <nav class="navbar">
+                <div class="nav-container">
+                    <h2 class="logo">Interview Scheduler</h2>
+                    <div class="nav-user">
+                        <span id="userName"></span>
+                        <button onclick="logout()" class="btn-logout">Logout</button>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="dashboard-container">
+                <aside class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li><a href="#" onclick="showSection('overview')" class="menu-item active">Dashboard</a></li>
+                        <li><a href="#" onclick="showSection('schedule')" class="menu-item">Schedule Interview</a></li>
+                        <li><a href="#" onclick="showSection('interviews')" class="menu-item">My Interviews</a></li>
+                        <li><a href="#" onclick="showSection('calendar')" class="menu-item">Calendar</a></li>
+                    </ul>
+                </aside>
+
+                <main class="main-content">
+                    <div id="overviewSection" class="content-section active">
+                        <div class="section-header">
+                            <h2>Dashboard Overview</h2>
+                        </div>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                    <span>📅</span>
+                                </div>
+                                <h3>Total Interviews</h3>
+                                <p class="stat-number" id="totalInterviews">0</p>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                    <span>✅</span>
+                                </div>
+                                <h3>Scheduled</h3>
+                                <p class="stat-number" id="scheduledCount">0</p>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                                    <span>✔️</span>
+                                </div>
+                                <h3>Completed</h3>
+                                <p class="stat-number" id="completedCount">0</p>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                                    <span>❌</span>
+                                </div>
+                                <h3>Cancelled</h3>
+                                <p class="stat-number" id="cancelledCount">0</p>
+                            </div>
+                        </div>
+
+                        <div class="upcoming-interviews">
+                            <h3>Upcoming Interviews</h3>
+                            <div id="upcomingList" class="interview-list"></div>
+                        </div>
+                    </div>
+
+                    <div id="scheduleSection" class="content-section">
+                        <div class="section-header">
+                            <h2>Schedule New Interview</h2>
+                        </div>
+                        <div class="schedule-form-container">
+                            <form onsubmit="handleScheduleInterview(event)" class="schedule-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Candidate Name</label>
+                                        <input type="text" id="candidateName" placeholder="Enter candidate name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Candidate Email</label>
+                                        <input type="email" id="candidateEmail" placeholder="candidate@example.com" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Position</label>
+                                        <input type="text" id="position" placeholder="Job position" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Interviewer</label>
+                                        <input type="text" id="interviewer" placeholder="Interviewer name">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Interview Date & Time</label>
+                                        <input type="datetime-local" id="dateTime" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Duration (minutes)</label>
+                                        <input type="number" id="duration" placeholder="30" min="15" max="480" required>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn-primary btn-large">Schedule Interview</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="interviewsSection" class="content-section">
+                        <div class="section-header">
+                            <h2>My Interviews</h2>
+                            <div class="filter-buttons">
+                                <button onclick="filterInterviews('all')" class="filter-btn active">All</button>
+                                <button onclick="filterInterviews('scheduled')" class="filter-btn">Scheduled</button>
+                                <button onclick="filterInterviews('completed')" class="filter-btn">Completed</button>
+                                <button onclick="filterInterviews('cancelled')" class="filter-btn">Cancelled</button>
+                            </div>
+                        </div>
+                        <div id="interviewsList" class="interview-list-full"></div>
+                    </div>
+
+                    <div id="calendarSection" class="content-section">
+                        <div class="section-header">
+                            <h2>Interview Calendar</h2>
+                        </div>
+                        <div class="calendar-container">
+                            <div id="calendar" class="calendar"></div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

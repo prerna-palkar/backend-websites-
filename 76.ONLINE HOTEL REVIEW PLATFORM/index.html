@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Review Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🏨 Hotel Review Platform</h1>
+                <p>Discover and Review Amazing Hotels</p>
+            </div>
+        </header>
+
+        <!-- Search Bar -->
+        <div class="search-section">
+            <input type="text" id="searchInput" class="search-bar" placeholder="Search hotels by name or location...">
+            <select id="sortSelect" class="sort-select">
+                <option value="default">Sort By</option>
+                <option value="rating">Rating (High to Low)</option>
+                <option value="price-low">Price (Low to High)</option>
+                <option value="price-high">Price (High to Low)</option>
+            </select>
+        </div>
+
+        <!-- Hotels Grid -->
+        <div class="hotels-grid" id="hotelsContainer">
+            <div class="loading">Loading hotels...</div>
+        </div>
+    </div>
+
+    <!-- Modal for Hotel Details and Reviews -->
+    <div id="hotelModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">
+                <h2 id="modalHotelName"></h2>
+                <p id="modalHotelLocation"></p>
+            </div>
+            <div class="modal-body">
+                <div class="hotel-details">
+                    <div class="detail-item">
+                        <strong>Price per Night:</strong>
+                        <span id="modalHotelPrice"></span>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Rating:</strong>
+                        <span id="modalHotelRating"></span>
+                    </div>
+                </div>
+
+                <div class="reviews-section">
+                    <h3>Guest Reviews</h3>
+                    <div id="reviewsList" class="reviews-list"></div>
+                </div>
+
+                <div class="add-review-section">
+                    <h3>Add Your Review</h3>
+                    <div class="rating-input">
+                        <label>Rating:</label>
+                        <div class="stars">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
+                    </div>
+                    <textarea id="reviewText" class="review-input" placeholder="Write your review here..." maxlength="200"></textarea>
+                    <button id="submitReviewBtn" class="submit-btn">Submit Review</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
